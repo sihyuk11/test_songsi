@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: dep-test3
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: dep-test3
+
+  template:
+    metadata:
+      labels:
+        app: dep-test3
+
+    spec:
+      containers:
+      - name: dep-test3
+        image: sihyuk11/test_dep:v1
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 9999
